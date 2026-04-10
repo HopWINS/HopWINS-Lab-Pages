@@ -29,9 +29,9 @@ export const SITE = {
   nav: [
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Research', link: '/research', key: 'research' },
-    { text: 'Publication', link: '/achievements', key: 'achievements' },
+    { text: 'Publications', link: '/publications', key: 'publications' },    
     { text: 'Team', link: '/team', key: 'team' },
-    { text: 'News', link: '/activities', key: 'activities' },
+    { text: 'News', link: '/news', key: 'news' },
     { text: 'Join Us', link: '/join', key: 'join' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
@@ -54,7 +54,7 @@ export const LOCALE = {
 } as const;
 
 export const LOGO_IMAGE = {
-  enable: true,
+  enable: false,
   svg: true,
   width: 216,
   height: 46,
