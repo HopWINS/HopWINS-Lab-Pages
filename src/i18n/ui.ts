@@ -17,7 +17,7 @@ export const ui = {
     'nav.news': 'News',
     'nav.search': 'Search',
     
-    'search.subtitle': 'Search through our publications, news, and team members.',
+    'search.subtitle': 'Search through our publications, news, etc.',
     
     // 'hero.title': 'Advancing Computer Vision & Deep Learning Research.', // Moved to config.ts
     // 'hero.subtitle': 'We are the Scholar-Lite Lab.', // Moved to config.ts
@@ -48,12 +48,12 @@ export const ui = {
     'activities.title': 'Team Activities',
     'activities.subtitle': 'Seminars, academic talks, and team building events.',
     
-    'research.subtitle': 'Our lab explores the frontiers of artificial intelligence, with a focus on computer vision and machine learning.',
+    'research.subtitle': '',
     'research.learnMore': 'Learn More',
     'research.noAreas': 'No research areas defined.',
     
     'join.title': 'Join Us',
-    'join.subtitle': 'We are always looking for motivated students to join our team. If you are interested in our research areas, please contact us!',
+    'join.subtitle': 'Some welcome words!',
     'join.phd': 'PhD Students',
     'join.phdDesc': 'We are looking for PhD students with strong mathematical background and coding skills.',
     'join.phdList1': 'Strong Math Foundation',
