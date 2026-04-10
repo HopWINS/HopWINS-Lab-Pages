@@ -75,14 +75,16 @@ const activities = (await getCollection('activities'))
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
         <h2 class="text-3xl font-bold text-gray-900" data-i18n-key="section.selectedPubs">Selected Publications</h2>
-        <a href="/achievements" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group">
+        <!-- <a href="/achievements" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group"> -->
+        <a href="/publications" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group"></a>
           <span data-i18n-key="section.viewAll">View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
         {papers.map(paper => {
-          const link = paper.data.links?.website || paper.data.links?.pdf || '/achievements';
+          // const link = paper.data.links?.website || paper.data.links?.pdf || '/achievements';
+          const link = paper.data.links?.website || paper.data.links?.pdf || '/publications';
           const isExternal = link.startsWith('http');
           return (
           <a 

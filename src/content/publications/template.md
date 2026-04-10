@@ -17,6 +17,6 @@ badges:
   - { text: "Best Paper", type: "gold" }
   - { text: "Oral", type: "blue" }
   - { text: "Spotlight", type: "red" }
-featured: false # I don't know what is this
+featured: true # Set to true to include in selected pubs
 ---
 Some Text.
