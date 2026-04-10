@@ -1,26 +1,26 @@
 import heroImage from './assets/hero-real.jpg';
 
 export const SITE = {
-  website: 'https://scholar-lite-demo.netlify.app/', // Replace with your actual deployed URL
-  author: 'Scholar-Lite Team',
-  description: 'A lightweight, modern static website template for academic labs and scholars.',
-  title: 'Scholar-Lite',
+  website: 'https://hopwinslab.com/', // Replace with your actual deployed URL
+  author: 'HopWINS Lab',
+  description: 'HopWINS Lab @ Johns Hopkins University',
+  title: 'HopWINS Lab',
   ogImage: 'astropaper-og.jpg',
   lightAndDarkMode: true,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   
   // Lab Info
-  labName: 'Scholar-Lite Lab',
-  university: 'University Name',
+  labName: 'HopWINS Lab',
+  university: 'Johns Hopkins University',
   logo: '/assets/logo-real.svg', // Logo path
   avatar: '/assets/logo-real.svg', // Avatar for SEO/Schema
-  email: 'contact@lab.edu', // Contact email for Join Us page
+  email: 'hopwinslab@gmail.com', // Contact email for Join Us page
 
   // Hero Section (Home Page) - Main content does not need to be translated for 8 languages by default
   hero: {
-    title: 'Advancing Computer Vision & Deep Learning Research.',
-    subtitle: 'We are the Scholar-Lite Lab.',
+    title: 'Hop(W)(I)(N)(S) Lab',
+    subtitle: 'We are the HopWINS Lab.',
     action: 'View Publications', // Optional call to action text
     image: heroImage, // Hero image path
   },
@@ -29,9 +29,9 @@ export const SITE = {
   nav: [
     { text: 'Home', link: '/', key: 'home' },
     { text: 'Research', link: '/research', key: 'research' },
-    { text: 'Achievements', link: '/achievements', key: 'achievements' },
+    { text: 'Publication', link: '/achievements', key: 'achievements' },
     { text: 'Team', link: '/team', key: 'team' },
-    { text: 'Activities', link: '/activities', key: 'activities' },
+    { text: 'News', link: '/activities', key: 'activities' },
     { text: 'Join Us', link: '/join', key: 'join' },
     { text: 'Search', link: '/search', key: 'search' },
   ],
@@ -43,8 +43,8 @@ export const SITE = {
   
   // i18n Config
   i18n: {
-    enabled: true,
-    defaultLocale: 'zh',
+    enabled: false,
+    defaultLocale: 'en',
   }
 };
 
@@ -62,8 +62,8 @@ export const LOGO_IMAGE = {
 
 export const SOCIALS = [
   {
-    link: 'https://github.com/fjd2004711/scholar-lite',
-    active: true,
+    link: 'https://hopwinslab.com/',
+    active: false,
   },
 ];
 
