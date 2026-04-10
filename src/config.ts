@@ -27,11 +27,9 @@ export const SITE = {
 
   // Navigation
   nav: [
-    { text: 'Home', link: '/', key: 'home' },
     { text: 'Research', link: '/research', key: 'research' },
     { text: 'Publications', link: '/publications', key: 'publications' },    
     { text: 'Team', link: '/team', key: 'team' },
-    { text: 'News', link: '/news', key: 'news' },
     { text: 'Join Us', link: '/join', key: 'join' },
     { text: 'Search', link: '/search', key: 'search' },
   ],

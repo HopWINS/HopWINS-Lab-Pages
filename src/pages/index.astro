@@ -2,17 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import { ArrowRight, Calendar } from 'lucide-react';
 import { SITE } from '../config';
 
-const papers = (await getCollection('publications'))
-  .filter(p => p.data.type === 'paper' && p.data.featured)
-  .sort((a, b) => b.data.year - a.data.year)
-  .slice(0, 3);
+type NewsListItem = {
+  data: {
+    date: Date;
+    title: string;
+    summary?: string;
+  };
+};
 
-const activities = (await getCollection('activities'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+const allNews = (await getCollection('news') as NewsListItem[]).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Layout title="Home">
@@ -63,20 +63,19 @@ const activities = (await getCollection('activities'))
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+    <!-- <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
       </svg>
-    </div>
+    </div> -->
   </section>
 
   <!-- Selected Publications -->
-  <section class="py-16 bg-gray-50">
+  <!-- <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
         <h2 class="text-3xl font-bold text-gray-900" data-i18n-key="section.selectedPubs">Selected Publications</h2>
-        <!-- <a href="/achievements" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group"> -->
-        <a href="/publications" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group"></a>
+        <a href="/achievements" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group">
           <span data-i18n-key="section.viewAll">View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
@@ -124,19 +123,19 @@ const activities = (await getCollection('activities'))
         )})}
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Latest Activities -->
+  <!-- Latest News -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-end mb-8">
-        <h2 class="text-3xl font-bold text-gray-900" data-i18n-key="section.latestNews">Latest Activities</h2>
-        <a href="/activities" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group">
+        <h2 class="text-3xl font-bold text-gray-900" data-i18n-key="section.latestNews">Latest News</h2>
+        <!-- <a href="/activities" class="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 group">
           <span data-i18n-key="section.viewAll">View all</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </a>
+        </a> -->
       </div>
 
-      <div class="grid gap-8 md:grid-cols-3">
+      <!-- <div class="grid gap-8 md:grid-cols-3">
         {activities.map(item => {
           const link = `/activities/${item.id.replace(/\.[^/.]+$/, "")}`;
           return (
@@ -166,6 +165,25 @@ const activities = (await getCollection('activities'))
             </div>
           </div>
         )})}
+      </div> -->
+
+      <div class="border-l-2 border-gray-100 pl-8 space-y-12">
+        {allNews.map(item => (
+          <div class="relative">
+            <span class="absolute -left-[37px] top-1.5 w-4 h-4 rounded-full bg-blue-100 border-2 border-white ring-1 ring-blue-600"></span>
+            <time class="block text-sm text-gray-500 mb-2">{item.data.date.toISOString().split('T')[0]}</time>
+            <h2 class="text-xl font-bold text-gray-900 mb-2">{item.data.title}</h2>
+            {item.data.summary && <p class="text-gray-600 mb-4">{item.data.summary}</p>}
+            <div class="prose prose-blue prose-sm text-gray-600">
+              <!-- We could render the full body here if needed, or just keep it as a list -->
+              {/* <item.Content /> */}
+            </div>
+          </div>
+        ))}
+        
+        {allNews.length === 0 && (
+          <p class="text-gray-500 italic" data-i18n-key="news.noNews">No news yet.</p>
+        )}
       </div>
     </div>
   </section>
